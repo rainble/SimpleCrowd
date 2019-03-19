@@ -2,17 +2,12 @@ import com.selab.simplecrowd.dao.SimpleTaskDAO;
 import com.selab.simplecrowd.pojo.SimpleTask;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 public class SimpleTaskDAOTest extends BaseTest{
 
     @Autowired
     private SimpleTaskDAO simpleTaskDAO;
-
-    @Test
-    public void testQueryTaskId() throws Exception {
-        int taskId = simpleTaskDAO.queryLatestTaskId();
-        System.out.println(taskId);
-    }
 
     @Test
     public void testAddSimpleTask() {
@@ -24,5 +19,13 @@ public class SimpleTaskDAOTest extends BaseTest{
         int num = simpleTaskDAO.addSimpleTask(simpleTask);
         System.out.println("the num is: " + num);
         System.out.println("the id is: " + simpleTask.getTaskId());
+    }
+
+
+    @Test
+    public void testQuerySimpleTaskByTaskId() {
+        int taskId = 9;
+        SimpleTask simpleTask = simpleTaskDAO.querySimpleTaskByTaskId(taskId);
+        System.out.println(simpleTask.toString());
     }
 }

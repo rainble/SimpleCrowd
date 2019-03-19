@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 public class Accept {
 
+    private int acceptId;
+
     private int taskId;
 
     private int workerId;
@@ -15,7 +17,8 @@ public class Accept {
     @Override
     public String toString() {
         return "Accept{" +
-                "taskId=" + taskId +
+                "acceptId=" + acceptId +
+                ", taskId=" + taskId +
                 ", workerId=" + workerId +
                 ", acceptTime=" + acceptTime +
                 ", publish=" + publish.toString() +
@@ -52,5 +55,13 @@ public class Accept {
 
     public Timestamp getAcceptTime() {
         return acceptTime;
+    }
+
+    public int getAcceptId() {
+        return acceptId;
+    }
+
+    public void setAcceptId(int acceptId) {
+        this.acceptId = acceptId;
     }
 }

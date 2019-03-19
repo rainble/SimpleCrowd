@@ -10,14 +10,11 @@ public interface PublishDAO {
 
     /**
      * publish crowd task
-     * @param taskId
-     * @param publisherId
-     * @param callbackUr
+     * @param publish
      * @return int
      * @create 2019-03-15 10:16
     **/
-    int addPublishSimpleTask(@Param("taskId")int taskId, @Param("publisherId") int publisherId,
-                                 @Param("callbackUrl")String callbackUr);
+    int addPublishSimpleTask(Publish publish);
 
     /**
      * query task detail by taskId
@@ -34,6 +31,13 @@ public interface PublishDAO {
      * @create  20:23
     **/
     List<Publish> listPublishedSimpleTaskByUserId(@Param("publisherId")int publisherId);
+
+    /**
+     * query all task publihed to let user choose which to accept
+     * @return java.util.List<com.selab.simplecrowd.pojo.Publish>
+     * @create 2019-03-19 15:57
+    **/
+    List<Publish> listAllPublishedSimpleTask();
 
     /**
      * query the callbackUrl bu taskId for callback when the task is completed

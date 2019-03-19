@@ -11,12 +11,11 @@ public interface AcceptDAO {
     
     /**
      * accept a task published before
-     * @param taskId
-     * @param workerId
+     * @param accept
      * @return int
      * @create 2019-03-18 10:54
     **/
-    int addAcceptSimpleTask(@Param("taskId")int taskId, @Param("workerId") int workerId);
+    int addAcceptSimpleTask(Accept accept);
     
     /**
      * query task accepted by taskId

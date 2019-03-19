@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 public class Complete {
 
+    private int completeId;
+
     private int taskId;
 
     private Timestamp completeTime;
@@ -13,18 +15,11 @@ public class Complete {
     @Override
     public String toString() {
         return "Complete{" +
-                "taskId=" + taskId +
+                "completeId=" + completeId +
+                ", taskId=" + taskId +
                 ", completeTime=" + completeTime +
-                ", simpleTask=" + accept.toString() +
+                ", accept=" + accept +
                 '}';
-    }
-
-    public void setSimpleTask(Accept accept) {
-        this.accept = accept;
-    }
-
-    public Accept getSimpleTask() {
-        return accept;
     }
 
     public int getTaskId() {
@@ -41,5 +36,21 @@ public class Complete {
 
     public void setCompleteTime(Timestamp completeTime) {
         this.completeTime = completeTime;
+    }
+
+    public Accept getAccept() {
+        return accept;
+    }
+
+    public void setAccept(Accept accept) {
+        this.accept = accept;
+    }
+
+    public int getCompleteId() {
+        return completeId;
+    }
+
+    public void setCompleteId(int completeId) {
+        this.completeId = completeId;
     }
 }

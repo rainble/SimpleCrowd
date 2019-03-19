@@ -19,6 +19,9 @@
         UPDATE simpletask SET state = #{state} WHERE taskId = #{taskId}
     </update>
 
+    <select id="querySimpleTaskByTaskId" parameterType="int" resultType="com.selab.simplecrowd.pojo.SimpleTask">
+        SELECT taskId, taskDesc, locationDesc, bonus, duration, state FROM simpletask WHERE taskId = #{taskId}
+    </select>
 
 
 </mapper>

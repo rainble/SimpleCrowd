@@ -16,7 +16,7 @@ public interface CompleteDAO {
      * @return int
      * @create 2019-03-14 20:47
     **/
-    int addCompleteSimpleTask(@Param("taskId")int taskId);
+    int addCompleteSimpleTask(Complete complete);
 
     /**
      * query completed task by taskId

@@ -4,8 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.selab.simplecrowd.dao.CompleteDAO">
 
-    <insert id="addCompleteSimpleTask">
+    <insert id="addCompleteSimpleTask" parameterType="com.selab.simplecrowd.pojo.Complete">
         INSERT IGNORE INTO complete (taskId) VALUES (#{taskId})
+        <selectKey resultType="int" keyProperty="completeId" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     </insert>
 
     <select id="queryCompletedSimpleTaskByTaskId" resultType="complete" parameterType="int">

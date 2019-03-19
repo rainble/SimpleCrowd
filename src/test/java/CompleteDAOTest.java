@@ -1,4 +1,5 @@
 import com.selab.simplecrowd.dao.CompleteDAO;
+import com.selab.simplecrowd.pojo.Complete;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -9,7 +10,10 @@ public class CompleteDAOTest extends BaseTest {
 
     @Test
     public void testAddCompleteSimpleTask() {
-        completeDAO.addCompleteSimpleTask(2);
+        Complete complete = new Complete();
+        complete.setTaskId(4);
+        int res = completeDAO.addCompleteSimpleTask(complete);
+        System.out.println(complete.getCompleteId() + "   " + res);
     }
 
     @Test

@@ -24,6 +24,8 @@ public interface SimpleTaskDAO {
      * @return int
      * @create 2019-03-18 15:36
     **/
+
+//    用对象变量作为参数的时候不能加@Param注解，不然会得不到对象里面的property作为真正的sql执行参数
     int addSimpleTask(SimpleTask simpleTask);
 
     /**
@@ -43,5 +45,12 @@ public interface SimpleTaskDAO {
     **/
     int updateSimpleTaskState(@Param("taskId")int taskId, @Param("state")int state);
 
+    /**
+     * query
+     * @param taskId
+     * @return com.selab.simplecrowd.pojo.SimpleTask
+     * @create 2019-03-19 14:59
+    **/
+    SimpleTask querySimpleTaskByTaskId(@Param("taskId")int taskId);
 
 }

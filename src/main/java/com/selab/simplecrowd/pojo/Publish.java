@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 public class Publish {
 
+    private int publishId;
+
     private int taskId;
 
     private int publisherId;
@@ -25,10 +27,11 @@ public class Publish {
     @Override
     public String toString() {
         return "Publish{" +
-                "taskId=" + taskId +
+                "publishId=" + publishId +
+                ", taskId=" + taskId +
                 ", publisherId=" + publisherId +
                 ", callbackUrl='" + callbackUrl + '\'' +
-                ", publishTime=" + publishTime.toString() +
+                ", publishTime=" + publishTime +
                 ", simpleTask=" + simpleTask.toString() +
                 '}';
     }
@@ -63,5 +66,13 @@ public class Publish {
 
     public String getCallbackUrl() {
         return callbackUrl;
+    }
+
+    public int getPublishId() {
+        return publishId;
+    }
+
+    public void setPublishId(int publishId) {
+        this.publishId = publishId;
     }
 }
