@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.selab.simplecrowd.dao.CompleteDAO">
+
+    <insert id="addCompleteSimpleTask">
+        INSERT IGNORE INTO complete (taskId) VALUES (#{taskId})
+    </insert>
+
+    <select id="queryCompletedSimpleTaskByTaskId" resultType="complete" parameterType="int">
+        SELECT
+            p.taskId "accept.publish.taskId",
+            p.publishTime "accept.publish.publishTime",
+            p.publisherId "accept.publish.publisherId",
+            a.acceptTime "accept.acceptTime",
+            a.workerId "accept.workerId",
+            c.completeTime,
+            s.taskDesc "accept.publish.simpletask.taskDesc",
+            s.locationDesc "accept.publish.simpletask.locationDesc",
+            s.bonus "accept.publish.simpletask.bonus",
+            s.duration "accept.publish.simpletask.duration",
+            s.state "accept.publish.simpletask.state"
+        FROM
+            publish p
+        INNER JOIN
+            simpletask s on p.taskId = s.taskId
+        INNER JOIN
+            accept a ON p.taskId = a.taskId
+        INNER JOIN
+            complete c ON p.taskId = c.taskId
+        WHERE
+            p.taskId = #{taskId}
+    </select>
+
+    <select id="listCompletedSimpleTaskByUserId" resultType="complete" parameterType="int">
+        SELECT
+            p.taskId "accept.publish.taskId",
+            p.publishTime "accept.publish.publishTime",
+            p.publisherId "accept.publish.publisherId",
+            a.acceptTime "accept.acceptTime",
+            a.workerId "accept.workerId",
+            c.completeTime,
+            s.taskDesc "accept.publish.simpletask.taskDesc",
+            s.locationDesc "accept.publish.simpletask.locationDesc",
+            s.bonus "accept.publish.simpletask.bonus",
+            s.duration "accept.publish.simpletask.duration",
+            s.state "accept.publish.simpletask.state"
+        FROM
+            publish p
+        INNER JOIN
+            simpletask s on p.taskId = s.taskId
+        INNER JOIN
+            accept a ON p.taskId = a.taskId
+        INNER JOIN
+            complete c ON p.taskId = c.taskId
+        WHERE
+            p.publisherId = #{publisherId}
+    </select>
+
+    <select id="listCompletedSimpleTaskByWorkerId" resultType="complete" parameterType="int">
+        SELECT
+            p.taskId "accept.publish.taskId",
+            p.publishTime "accept.publish.publishTime",
+            p.publisherId "accept.publish.publisherId",
+            a.acceptTime "accept.acceptTime",
+            a.workerId "accept.workerId",
+            c.completeTime,
+            s.taskDesc "accept.publish.simpletask.taskDesc",
+            s.locationDesc "accept.publish.simpletask.locationDesc",
+            s.bonus "accept.publish.simpletask.bonus",
+            s.duration "accept.publish.simpletask.duration",
+            s.state "accept.publish.simpletask.state"
+        FROM
+            publish p
+        INNER JOIN
+            simpletask s on p.taskId = s.taskId
+        INNER JOIN
+            accept a ON p.taskId = a.taskId
+        INNER JOIN
+            complete c ON p.taskId = c.taskId
+        WHERE
+            a.workerId = #{workerId}
+    </select>
+
+    <delete id="deleteCompletedSimpleTask">
+        DELETE * FROM complete WHERE taskId = #{taskId}
+    </delete>
+
+</mapper>

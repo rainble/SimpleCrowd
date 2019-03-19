@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.selab.simplecrowd.dao.SimpleTaskDAO">
+    <insert id="addSimpleTask" parameterType="com.selab.simplecrowd.pojo.SimpleTask">
+        INSERT IGNORE INTO simpletask (taskDesc, locationDesc, bonus, duration)
+            VALUES (#{taskDesc}, #{locationDesc}, #{bonus}, #{duration})
+        <selectKey resultType="int" keyProperty="taskId" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <delete id="deleteSimpleTask">
+        DELETE * FROM simpletask WHERE taskId = #{taskId}
+    </delete>
+
+    <update id="updateSimpleTaskState">
+        UPDATE simpletask SET state = #{state} WHERE taskId = #{taskId}
+    </update>
+
+
+
+</mapper>

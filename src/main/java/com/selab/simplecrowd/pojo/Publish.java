@@ -1,0 +1,67 @@
+package com.selab.simplecrowd.pojo;
+
+import java.sql.Timestamp;
+
+public class Publish {
+
+    private int taskId;
+
+    private int publisherId;
+
+    private String callbackUrl;
+
+    private Timestamp publishTime;
+
+    public void setPublishTime(Timestamp publishTime) {
+        this.publishTime = publishTime;
+    }
+
+    public Timestamp getPublishTime() {
+        return publishTime;
+    }
+
+    private SimpleTask simpleTask;
+
+    @Override
+    public String toString() {
+        return "Publish{" +
+                "taskId=" + taskId +
+                ", publisherId=" + publisherId +
+                ", callbackUrl='" + callbackUrl + '\'' +
+                ", publishTime=" + publishTime.toString() +
+                ", simpleTask=" + simpleTask.toString() +
+                '}';
+    }
+
+    public SimpleTask getSimpleTask() {
+        return simpleTask;
+    }
+
+    public void setSimpleTask(SimpleTask simpleTask) {
+        this.simpleTask = simpleTask;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
+    }
+
+    public void setPublisherId(int publisherId) {
+        this.publisherId = publisherId;
+    }
+
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
+    }
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public int getPublisherId() {
+        return publisherId;
+    }
+
+    public String getCallbackUrl() {
+        return callbackUrl;
+    }
+}

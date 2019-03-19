@@ -1,0 +1,52 @@
+package com.selab.simplecrowd.dao;
+
+import com.selab.simplecrowd.pojo.Accept;
+import com.selab.simplecrowd.pojo.Publish;
+import com.selab.simplecrowd.pojo.SimpleTask;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+public interface AcceptDAO {
+    
+    /**
+     * accept a task published before
+     * @param taskId
+     * @param workerId
+     * @return int
+     * @create 2019-03-18 10:54
+    **/
+    int addAcceptSimpleTask(@Param("taskId")int taskId, @Param("workerId") int workerId);
+    
+    /**
+     * query task accepted by taskId
+     * @param taskId
+     * @return com.selab.simplecrowd.pojo.Accept
+     * @create 2019-03-18 09:47
+    **/
+    Accept queryAcceptedSimpleTaskByTaskId(@Param("taskId")int taskId);
+    
+    /**
+     * query tasks accepted which are published by one person
+     * @param publiserId
+     * @return java.util.List<com.selab.simplecrowd.pojo.Accept>
+     * @create 2019-03-18 09:47
+    **/
+    List<Accept> listAcceptedSimpleTaskByUserId(@Param("publiserId")int publiserId);
+    
+    /**
+     * query tasks accepted by one person
+     * @param workerId
+     * @return java.util.List<com.selab.simplecrowd.pojo.Accept>
+     * @create 2019-03-18 09:47
+    **/
+    List<Accept> listAcceptedSimpleTaskByWorkerId(@Param("workerId")int workerId);
+    
+    /**
+     * delete the accepted task
+     * @param taskId 
+     * @return int
+     * @create  20:36
+    **/
+    int deleteAcceptedSimpleTask(@Param("taskId")int taskId);
+}
